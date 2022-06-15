@@ -33,12 +33,15 @@ class Tic_tack_toe
     puts "Player 1 (X), choose a position (e.g. a1, b2, c3)"
     while true
       position = gets.chomp
-      p position
-      if position == "a1" || position == "a2" || position == "a3" || position == "b1" || position == "b2" || position == "b3" || position == "c1" || position == "c2" || position == "c3" 
-        @board[position] = "X"
-        break
+      if @board[position] == " "
+        if position == "a1" || position == "a2" || position == "a3" || position == "b1" || position == "b2" || position == "b3" || position == "c1" || position == "c2" || position == "c3" 
+          @board[position] = "X"
+          break
+        else
+          puts "Please enter a valid position"
+        end
       else
-        puts "Please enter a valid position"
+        puts "Position already taken"
       end
     end
     if @board["a1"] == "X" && @board["a2"] == "X" && @board["a3"] == "X" || @board["b1"] == "X" && @board["b2"] == "X" && @board["b3"] == "X" || @board["c1"] == "X" && @board["c2"] == "X" && @board["c3"] == "X" || @board["a1"] == "X" && @board["b2"] == "X" && @board["c3"] == "X" || @board["c1"] == "X" && @board["b2"] == "X" && @board["c3"] == "X" || @board["a1"] == "X" && @board["b1"] == "X" && @board["c1"] == "X" || @board["a2"] == "X" && @board["b2"] == "X" && @board["c2"] == "X" || @board["a3"] == "X" && @board["b3"] == "X" && @board["c3"] == "X" 
@@ -51,12 +54,15 @@ class Tic_tack_toe
     puts "Player 2 (O), choose a position (e.g. a1, b2, c3)"
     while true
       position = gets.chomp
-      p position
-      if position == "a1" || position == "a2" || position == "a3" || position == "b1" || position == "b2" || position == "b3" || position == "c1" || position == "c2" || position == "c3" 
-        @board["#{position}"] = "O"
-        break
+      if @board[position] == " "
+        if position == "a1" || position == "a2" || position == "a3" || position == "b1" || position == "b2" || position == "b3" || position == "c1" || position == "c2" || position == "c3" 
+          @board["#{position}"] = "O"
+          break
+        else
+          puts "Please enter a valid position"
+        end
       else
-        puts "Please enter a valid position"
+        puts "Position already taken"
       end
     end
     if @board["a1"] == "O" && @board["a2"] == "O" && @board["a3"] == "O" || @board["b1"] == "O" && @board["b2"] == "O" && @board["b3"] == "O" || @board["c1"] == "O" && @board["c2"] == "O" && @board["c3"] == "O" || @board["a1"] == "O" && @board["b2"] == "O" && @board["c3"] == "O" || @board["c1"] == "O" && @board["b2"] == "O" && @board["c3"] == "O" || @board["a1"] == "X" && @board["b1"] == "X" && @board["c1"] == "X" || @board["a2"] == "X" && @board["b2"] == "X" && @board["c2"] == "X" || @board["a3"] == "X" && @board["b3"] == "X" && @board["c3"] == "X" 
