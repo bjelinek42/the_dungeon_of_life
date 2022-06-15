@@ -41,7 +41,10 @@ class Tic_tack_toe
         puts "Please enter a valid position"
       end
     end
-
+    if @board["a1"] == "X" && @board["a2"] == "X" && @board["a3"] == "X" || @board["b1"] == "X" && @board["b2"] == "X" && @board["b3"] == "X" || @board["c1"] == "X" && @board["c2"] == "X" && @board["c3"] == "X" || @board["a1"] == "X" && @board["b2"] == "X" && @board["c3"] == "X" || @board["c1"] == "X" && @board["b2"] == "X" && @board["c3"] == "X" || @board["a1"] == "X" && @board["b1"] == "X" && @board["c1"] == "X" || @board["a2"] == "X" && @board["b2"] == "X" && @board["c2"] == "X" || @board["a3"] == "X" && @board["b3"] == "X" && @board["c3"] == "X" 
+      puts "Player 1 wins!"
+      @winner = true
+    end
   end
 
   def player2_move
@@ -56,14 +59,8 @@ class Tic_tack_toe
         puts "Please enter a valid position"
       end
     end
-  end
-
-  def winner?
-    if @board["a1"] == "X" && @board["a2"] == "X" && @board["a3"] == "X" || @board["b1"] == "X" && @board["b2"] == "X" && @board["b3"] == "X" || @board["c1"] == "X" && @board["c2"] == "X" && @board["c3"] == "X" || @board["a1"] == "X" && @board["b2"] == "X" && @board["c3"] == "X" || @board["c1"] == "X" && @board["b2"] == "X" && @board["c3"] == "X"
-      puts "X wins!"
-      @winner = true
-    elsif @board["a1"] == "O" && @board["a2"] == "O" && @board["a3"] == "O" || @board["b1"] == "O" && @board["b2"] == "O" && @board["b3"] == "O" || @board["c1"] == "O" && @board["c2"] == "O" && @board["c3"] == "O" || @board["a1"] == "O" && @board["b2"] == "O" && @board["c3"] == "O" || @board["c1"] == "O" && @board["b2"] == "O" && @board["c3"] == "O"
-      puts "O wins!"
+    if @board["a1"] == "O" && @board["a2"] == "O" && @board["a3"] == "O" || @board["b1"] == "O" && @board["b2"] == "O" && @board["b3"] == "O" || @board["c1"] == "O" && @board["c2"] == "O" && @board["c3"] == "O" || @board["a1"] == "O" && @board["b2"] == "O" && @board["c3"] == "O" || @board["c1"] == "O" && @board["b2"] == "O" && @board["c3"] == "O" || @board["a1"] == "X" && @board["b1"] == "X" && @board["c1"] == "X" || @board["a2"] == "X" && @board["b2"] == "X" && @board["c2"] == "X" || @board["a3"] == "X" && @board["b3"] == "X" && @board["c3"] == "X" 
+      puts "Player 2 wins!"
       @winner = true
     end
   end
