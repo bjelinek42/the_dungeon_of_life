@@ -130,6 +130,10 @@ class Dungeon
     puts "Hit enter to continue"
     gets
   end
+
+  def room3
+
+  end
 end
 
 game = Dungeon.new
