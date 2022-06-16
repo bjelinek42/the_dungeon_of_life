@@ -1,7 +1,7 @@
 class Dungeon
 
   def initialize
-    @character = {name: "", hit_points: 100, social_standing: 50, friends: []}
+    @character = {name: "", hit_points: 100, social_standing: 50, friends: [], enemies: []}
   end
 
   def begin
@@ -18,11 +18,19 @@ class Dungeon
     hit_points = @character[:hit_points]
     social_standing = @character[:social_standing]
     friends = ""
-    @character[:friends].each do |friend|
-      if friends.length ==1
+    enemies = ""
+    @character[:friends].each_with_index do |friend, index|
+      if index == 0
         friends += friend
       else
         friends += ", " + friend
+      end
+    end
+    @character[:enemies].each_with_index do |enemy, index|
+      if index == 0
+        enemies += enemy
+      else
+        enemies += ", " + enemy
       end
     end
     puts "Your current stats are:"
@@ -30,6 +38,7 @@ class Dungeon
     puts "Hit Points: #{hit_points}/100"
     puts "Social Standing: #{social_standing}/100"
     puts "Friends: #{friends}"
+    puts "Enemies: #{enemies}"
   end
 
   def room1
@@ -66,6 +75,8 @@ class Dungeon
       end
     end
     current_attributes
+    puts "Hit enter to continue"
+    gets
   end
 
   def room2
@@ -87,23 +98,24 @@ class Dungeon
         @character[:friends] << "Eric"
         break
       elsif choice == "2"
-        puts "You decide to take the road mostly travelled and travel with the other kids along the route. And damn, coming to the rich neighborhood really paid off! You got a full two pounds of candy, and gained 10 social standing"
+        puts "You decide to take the road mostly travelled with the other kids along the route. And damn, coming to the rich neighborhood really paid off! You got a full two pounds of candy, and gained 10 social standing"
         @character[:social_standing] += 10
         @character[:candy] = "Two pounds"
         break
       elsif choice == "3"
         puts "'That's bullshit. This thief needs to pay. Let's go kid.' You learn his name is Eric, and he is learning karate at a local school. He knows right where the bully is too, and after a few blocks you run into him. Somehow he is, like, 3 times larger than the rest of the kids around. He is sitting atop a thrown of candy, dressed in a spider man costume clearly too small for him. As you prepare for battle, he responds with a proposition."
-        puts "1. Fight the thief."
-        puts "2. He will give you ten pounds of candy to leave him alone."
+        puts "1. He will give you ten pounds of candy to leave him alone."
+        puts "2. Fight the thief."
         p 'Enter your choice:'
         choice = gets.chomp
         if choice == "1"
-          "You recieve the candy. Eric looks betrayed, and vows vengence on your greedy soul."
+          puts "You recieve the candy. Eric looks betrayed, and vows vengence on your greedy soul."
           @character[:enemies] << "Eric"
           @character[:candy] = "Ten Pounds"
+          break
         elsif choice == "2"
           puts "You have too much honor to let him get aways with this. Eric looks ready to kill a bear, his eyes with a red twinge."
-          puts "You see Eric sneak off into the shadows as the thief lays into you. You are quick, and not weighed down by your armor, not that it would help you anyway. You take a couple shots to the chest, but as the thief is beginning his death blow, Eric sweeps the leg and the thief falls face first onto a box of Good 'n' Plenty. In his greed, he did not realize he had taken the most deisgusting candy imaginable, and now was withering away. You and Eric celebrate, a little worse for wear, but with a lasting friendship. You have lost 20 hit points, and Eric is now your friend"
+          puts "You see Eric sneak off into the shadows as the thief lays into you. You are quick, and not weighed down by your armor, not that it would help you anyway. You take a couple shots to the chest, but as the thief is beginning his death blow, Eric sweeps the leg and the thief falls face first onto a box of Good 'n' Plenty. In his greed, he did not realize he had taken the most deisgusting candy imaginable, and now was withering away. You and Eric celebrate, a little worse for wear, but with a lasting friendship. You have lost 20 hit points, and Eric is now your friend. You leave the candy for the kids, Robinhood style."
           @character[:friends] << "Eric"
           @character[:hit_points] -= 20
           break
@@ -115,6 +127,8 @@ class Dungeon
       end
     end
     current_attributes
+    puts "Hit enter to continue"
+    gets
   end
 end
 
