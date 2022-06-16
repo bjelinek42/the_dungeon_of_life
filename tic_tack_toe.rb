@@ -20,6 +20,7 @@ class Tic_tack_toe
       player2_move
       display_board
     end
+    return @winner
   end
 
   def display_board
@@ -49,7 +50,7 @@ class Tic_tack_toe
     @count += 1
     if @board["a1"] == "X" && @board["a2"] == "X" && @board["a3"] == "X" || @board["b1"] == "X" && @board["b2"] == "X" && @board["b3"] == "X" || @board["c1"] == "X" && @board["c2"] == "X" && @board["c3"] == "X" || @board["a1"] == "X" && @board["b2"] == "X" && @board["c3"] == "X" || @board["c1"] == "X" && @board["b2"] == "X" && @board["a3"] == "X" || @board["a1"] == "X" && @board["b1"] == "X" && @board["c1"] == "X" || @board["a2"] == "X" && @board["b2"] == "X" && @board["c2"] == "X" || @board["a3"] == "X" && @board["b3"] == "X" && @board["c3"] == "X" 
       puts "Player 1 wins!"
-      @winner = "Player 1"
+      @winner = "Player"
     elsif @count == 9
       puts "Cat's game!"
     end
@@ -90,12 +91,12 @@ class Tic_tack_toe
     end
     @move += 1
     @count += 1
-    if @board["a1"] == "O" && @board["a2"] == "O" && @board["a3"] == "O" || @board["b1"] == "O" && @board["b2"] == "O" && @board["b3"] == "O" || @board["c1"] == "O" && @board["c2"] == "O" && @board["c3"] == "O" || @board["a1"] == "O" && @board["b2"] == "O" && @board["c3"] == "O" || @board["c1"] == "O" && @board["b2"] == "O" && @board["a3"] == "O" || @board["a1"] == "X" && @board["b1"] == "X" && @board["c1"] == "X" || @board["a2"] == "X" && @board["b2"] == "X" && @board["c2"] == "X" || @board["a3"] == "X" && @board["b3"] == "X" && @board["c3"] == "X" 
+    if @board["a1"] == "O" && @board["a2"] == "O" && @board["a3"] == "O" || @board["b1"] == "O" && @board["b2"] == "O" && @board["b3"] == "O" || @board["c1"] == "O" && @board["c2"] == "O" && @board["c3"] == "O" || @board["a1"] == "O" && @board["b2"] == "O" && @board["c3"] == "O" || @board["c1"] == "O" && @board["b2"] == "O" && @board["a3"] == "O" || @board["a1"] == "O" && @board["b1"] == "O" && @board["c1"] == "O" || @board["a2"] == "O" && @board["b2"] == "O" && @board["c2"] == "O" || @board["a3"] == "O" && @board["b3"] == "O" && @board["c3"] == "O" 
       puts "Suzie wins!"
       @winner = "Suzie"
     end
   end
 end
 
-game = Tic_tack_toe.new
-game.begin_tic_tack_toe
+# game = Tic_tack_toe.new
+# game.begin_tic_tack_toe

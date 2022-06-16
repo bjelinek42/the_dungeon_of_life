@@ -137,12 +137,37 @@ class Dungeon
     puts "You enter a stadium full of faceless people, a small board in the center with two chairs. Seated at one is a small child. People are cheering you as you approach, though you know not for what."
     puts "Welcome to the tic-tack-toe-championships! I am your host, Howie Mandell!"
     puts "Man, this guy is everywhere... you think"
-    puts "'Our contestants today are Suzie and #{@character[:name]}! As always, the loser today will get a punch to the gut by our celebrity guest!Today, that just so happens to be Dwayne 'The Rock' Johnson!'"
+    puts "'Our contestants today are Suzie and #{@character[:name]}! The winner today will be given the Sword of Victory, which should help in the event of a boss fight! And, as always, the loser today will get a punch to the gut by our celebrity guest!Today, that just so happens to be Dwayne 'The Rock' Johnson!'"
     puts "A curtain opens up and The Rock is doing his signature eyebrow raise. You notice Suzie is not looking at him, as tears roll down her face."
     puts "'Without further ado, let the game begin!'"
-    puts "Well this is a counundrum. You get to go first, and you know how to play this game and win, but Suzie might die if she gets hit by the voice of Maui. You decide, but you have to play the game!"
-    game = Tic_tack_toe.new
-    game.begin_tic_tack_toe
+    puts "Well this is a counundrum. You get to go first, and you know how to play this game and win, but Suzie might die if she gets hit by the voice of Maui. It is also going to be really painful to get hit... You decide, but you have to play the game!"
+    while true
+      game = Tic_tack_toe.new
+      winner = game.begin_tic_tack_toe
+      puts "Hit enter to continue"
+      gets
+      if winner == ""
+        puts "The crowed jeers you and Suzie."
+        puts "'The game cannot end in a tie! We must play again!' Howie says. You prepare for another game..."
+      elsif winner == "Suzie"
+        puts "The crowd cheers as The Rock cracks his knuckles. Suzie is overcome with joy, but there is a look on her face that says she know what you did for her."
+        puts "'Here comes my favorite part!' Howie screams. The Rock hits you right in the gut, and you double over in pain. You have lost 20 hit points, 10 social standing, and Suzie is now your friend."
+        @character[:friends] << "Suzie"
+        @character[:hit_points] -= 20
+        @character[:social_standing] -= 10
+        break
+      elsif winner == "Player"
+        puts "Suzie starts to cry again. The Rock seems unfazed that he will be hitting a little girl, and the crowd cheers for it."
+        puts "'Well, I can't believe I am saying this, but let's get to punching this child! What a fate #{@character[:name]} has given you!' Howie yells."
+        puts "The Rock winds up and really gives it to her right in the gut. To everyone's surprise, upon contact there is a burst of light, and Suzie comes away unscathed. She looks you in the eyes and says some kind of Latin phrase in a demonic voice, then leaves the stadium. You feel uneasy..."
+        puts " You have gained 10 social standing, the Sword of Victory, and Suzie is now your enemy."
+        @character[:enemies] << "Suzie"
+        @character[:social_standing] += 10
+        @character[:gear] << "Sword of Victory"
+        break
+      end
+    end
+    current_attributes
   end
 end
 
