@@ -5,7 +5,7 @@ class Tic_tack_toe
     @count = 0
   end
 
-  def begin
+  def begin_tic_tack_toe
     display_board
     while true
       if @winner == true
@@ -76,6 +76,3 @@ class Tic_tack_toe
     end
   end
 end
-
-game = Tic_tack_toe.new
-game.begin

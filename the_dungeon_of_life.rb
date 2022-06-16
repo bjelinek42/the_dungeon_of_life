@@ -1,3 +1,4 @@
+require_relative 'tic_tack_toe'
 class Dungeon
 
   def initialize
@@ -11,6 +12,7 @@ class Dungeon
     @character[:name] = name
     room1
     room2
+    room3
   end
 
   def current_attributes
@@ -132,9 +134,17 @@ class Dungeon
   end
 
   def room3
-
+    puts "You enter a stadium full of faceless people, a small board in the center with two chairs. Seated at one is a small child. People are cheering you as you approach, though you know not for what."
+    puts "Welcome to the tic-tack-toe-championships! I am your host, Howie Mandell!"
+    puts "Man, this guy is everywhere... you think"
+    puts "'Our contestants today are Suzie and #{@character[:name]}! As always, the loser today will get a punch to the gut by our celebrity guest!Today, that just so happens to be Dwayne 'The Rock' Johnson!'"
+    puts "A curtain opens up and The Rock is doing his signature eyebrow raise. You notice Suzie is not looking at him, as tears roll down her face."
+    puts "'Without further ado, let the game begin!'"
+    puts "Well this is a counundrum. You get to go first, and you know how to play this game and win, but Suzie might die if she gets hit by the voice of Maui. You decide, but you have to play the game!"
+    game = Tic_tack_toe.new
+    game.begin_tic_tack_toe
   end
 end
 
-game = Dungeon.new
-game.begin
+dungeon = Dungeon.new
+dungeon.begin
